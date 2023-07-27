@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Automation</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="base-container">
+    <div id="side-bar">
+
+      <div id = "logo">
+        <img src="https://www.v3rlabs.com/files/image_22.png">
+      </div>
+
+      <div id="profile">
+        <img id="pfp" src="https://i.postimg.cc/vmdvdLxD/White-CPS-Prime-MUN.png">
+        <h3 id="org-name">CPS Prime MUN</h3>
+        <a href="#">Edit</a>
+      </div>
+          <div id="btn-options">
+            <button id="dashboard" class="sidebar-button"><i class="fas fa-home"></i> Dashboard</button>
+            
+            <button id = "add-committees" class="sidebar-button"><i class="fas fa-plus"></i> Committees</button>
+            <button class="sidebar-button"><i class="fas fa-table"></i> Matrix</button>
+            <button class="sidebar-button"><i class="fas fa-cog"></i> Settings</button>
+
+          </div>
+    
+
+    </div>
+    <div id="container">
+        <header>
+          <h1 id="page-name"><i class="fas fa-home"></i>DashBoard</h1>
+            <div class="header-buttons">
+              <button id = "set-up"class="header-button"><i class="fas fa-bell"></i>SetUp</button>
+             <button class="header-button"><i class="fas fa-arrow-up"></i> Upgrade</button>
+            <button class="header-button"><i class="fas fa-bell"></i></button>
+            </div>
+        </header>
+
+        <div id="working-container">
+
+
+        </div>
+    </div>
+  
+  </div>
+    
+  <script src="renderer.js" type="module"></script>
+
+</body>
+
+</html>
