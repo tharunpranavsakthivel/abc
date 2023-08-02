@@ -83,7 +83,7 @@ export function createFieldContainer() {
   // spreadsheet field
 export function addSpreadsheetField() {
 
-    if (nextBtnContainer.childElementCount === 0) {
+    if (!setUpContainer.querySelector('#spreadsheet-field')) {
       console.log("spreadsheet field added");
 
       const spreadsheetContainer = document.createElement('div');
@@ -216,13 +216,13 @@ export function nextBtnHandler(){
    
     if (isValid) {
       spreadsheetDone();
-      const targetSection = document.getElementById("updates");
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-      const cont  = document.getElementById("registration-form")
-      cont.disabled = true;
-      cont.classList.add('disabled');
-      cont.style.pointerEvents = 'none';
-      cont.style.opacity = '0.5';
+      //const targetSection = document.getElementsByClassName("updates");
+      //targetSection.scrollIntoView({ behavior: 'smooth' });
+      //const cont  = document.getElementById("message-container")
+      //cont.disabled = true;
+      //cont.classList.add('disabled');
+      //cont.style.pointerEvents = 'none';
+      //cont.style.opacity = '0.5';
       
     }
     

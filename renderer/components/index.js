@@ -1,5 +1,5 @@
 import { allCountries } from "../constant/index.js";
-import { spreadsheetDone} from "./blockTwo.js";
+import { spreadsheetDone, spreadsheetMessageAdded} from "./blockTwo.js";
 import {showMatrix} from "./blockThree.js";
 import {committeeCheck, workingContainer, nextBtnContainer, setUpContainer, extraFieldContainer} from "./global.js";
 import {createFieldContainer, fieldIndex} from "./blockOne.js";
@@ -15,6 +15,7 @@ export {
     nextBtnContainer,  
     fieldIndex,  
     allCountries,
+    spreadsheetMessageAdded,
     setUpContainer,
     dashboard,
 

@@ -6,7 +6,7 @@ export const setUpBtn = document.getElementById("set-up");
 const nextButton = document.getElementById("next-button");
 
 
-import { workingContainer, createFieldContainer, setUpContainer, nextBtnContainer, extraFieldContainer, fieldIndex} from "./index.js";
+import { spreadsheetMessageAdded, workingContainer, createFieldContainer, setUpContainer, nextBtnContainer, extraFieldContainer, fieldIndex} from "./index.js";
 
 
 export function dashboard() {
@@ -14,7 +14,14 @@ export function dashboard() {
   let totalSeats = 500;
   const progress = (occupiedSeats / totalSeats) * 100;
 
-
+  workingContainer.style.padding = '20px';
+  workingContainer.style.display = 'grid';
+  workingContainer.style.gridTemplateColumns = 'repeat(3, 2fr)';
+  workingContainer.style.overflowY = 'scroll';
+  workingContainer.style.justifyItems = 'center';
+  workingContainer.style.alignItems = 'center';
+  workingContainer.style.width = '95%';
+  
   const card = document.createElement("div");
   card.className = "card";
 
@@ -273,6 +280,9 @@ addCommittees.addEventListener("click", function() {
 
 setUpBtn.addEventListener("click", function() {
   workingContainer.innerHTML = "";
+  workingContainer.style.display = "flex";
+  workingContainer.style.flexDirection = "column"
+  
   setUpContainer.innerHTML = "";
   if (workingContainer.innerHTML === "") {
 
@@ -286,9 +296,9 @@ setUpBtn.addEventListener("click", function() {
     setUpContainer.style.position = "top";
 
     setUpContainer.style.scrollBar = "hidden";
-    setUpContainer.style.gridColumn = "span 3";
+    setUpContainer.style.display = "flex";
+    setUpContainer.style.flexDirection = "column"
 
-    setUpContainer.style.overflowY = "scroll";
 
 
 

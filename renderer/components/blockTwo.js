@@ -9,10 +9,13 @@ export function spreadsheetDone() {
 
   if (makeSpreadsheetSuccess) {
     // If spreadsheet was successfully made
+
     if (!spreadsheetMessageAdded) {
       const spreadsheetContainer = document.createElement("div");
       spreadsheetContainer.classList.add("message-container");
       spreadsheetContainer.style.gridColumn = "span 3";
+
+      
 
 
       const tickImg = document.createElement("img");
@@ -32,6 +35,7 @@ export function spreadsheetDone() {
       spreadsheetContainer.appendChild(updatesBtn);
 
       workingContainer.appendChild(spreadsheetContainer);
+      console.log("added spreadsheet container");
 
       updatesBtn.addEventListener("click", () => {
         const websiteUrl = "https://www.google.com";
@@ -41,8 +45,9 @@ export function spreadsheetDone() {
       spreadsheetMessageAdded = true;
     }
     showMatrix();
-    const targetSection = document.getElementById("matrix-container");
-    targetSection.scrollIntoView({ behavior: "smooth" });
+    spreadsheetMessageAdded = false;
+    //const targetSection = document.getElementById("matrix-container");
+    //targetSection.scrollIntoView({ behavior: "smooth" });
   } 
   else {
 
@@ -82,9 +87,11 @@ export function spreadsheetDone() {
       });
 
       spreadsheetMessageAdded = true;
+      
     }
 
     setTimeout(spreadsheetDone, 2000); // Retry after 2 seconds
+    spreadsheetMessageAdded = false;
   }
 }
 
@@ -146,5 +153,6 @@ export async function makeSpreadsheet() {
   
     
 } */
+console.log("spreadsheet algo ran")
   return true;
 }

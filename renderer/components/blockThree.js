@@ -1,16 +1,19 @@
 
-import { allCountries,committeeCheck, } from "./index.js";
+import { allCountries,committeeCheck, workingContainer, } from "./index.js";
 
 //matrix section
 export function showMatrix() {
+  console.log("matrix container")
 
 
-    const matrixContainer = document.getElementById('matrix-container');
-    matrixContainer.innerHTML = '';
+    const matrixContainer = document.createElement('div')
+//    matrixContainer.style.gridColumn = "span 3";
+    matrixContainer.id = "matrix-container";
+   matrixContainer.innerHTML = '';
 
     const matrixHeading = document.createElement("h1");
-    matrixHeading.textContent = "Add Country Matrix "
-    matrixContainer.appendChild(matrixHeading)
+    matrixHeading.textContent = "Add Country Matrix ";
+    matrixContainer.appendChild(matrixHeading);
     
     
 
@@ -31,6 +34,7 @@ export function showMatrix() {
 
 
     matrixContainer.appendChild(choiceContainer);
+    workingContainer.appendChild(matrixContainer);
 
     manualBtn.addEventListener("click", ()=>{
       manual();
@@ -38,6 +42,10 @@ export function showMatrix() {
 
     bulkAddBtn.addEventListener("click", ()=>{
       bulk();
+
+
+      
+      
     })
 
 
@@ -55,6 +63,8 @@ export function showMatrix() {
       //clearing the container 
       const matrixContainer = document.getElementById('matrix-container');
       matrixContainer.innerHTML = '';
+
+      
 
       const matrixHeading = document.createElement("h1");
       matrixHeading.textContent = "Manual Mode"
@@ -113,8 +123,9 @@ export function showMatrix() {
       searchDiv.appendChild(backBtn);
 
       backBtn.addEventListener("click", ()=>{
+        matrixContainer.remove();
         showMatrix();
-      })
+      })//here
   
       committeeSection.appendChild(searchDiv);
   
@@ -556,11 +567,13 @@ export function showMatrix() {
     nBtnConatiner.appendChild(backBtn);
 
     backBtn.addEventListener("click", ()=>{
+      matrixContainer.remove();      
       showMatrix();
     })
 
 
   matrixContainer.appendChild(nBtnConatiner);
+
 
 
 

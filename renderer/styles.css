@@ -178,8 +178,10 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   grid-gap: 20px;
+  overflow-y: scroll;
   justify-items: center;
   align-items: center;
+  width: 95%;
 }
 
 .card {
@@ -257,6 +259,7 @@ header {
   display:flex;
   flex-direction: column;
   gap:20px;
+  width: 95%;
   background-color: #ccc;
   padding: 1em;
   border-radius: 2em;
@@ -317,6 +320,30 @@ header {
   font-weight: bold;
   color: #fff;
   background: linear-gradient(to right, #d98208, #db0606);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#add-button {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #d98208, #db0606);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#clear-all-button{
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #d91208, #db0606);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -391,6 +418,9 @@ header {
   align-items:center;
   color: white;
   background: linear-gradient(to right, #d98208, #db0606);
+  width: 95%;
+
+
 
 }
 
@@ -411,4 +441,75 @@ header {
 .updates-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#matrix-container{
+  margin-bottom: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:20px;
+  background-color: #ccc;
+  grid-column: span 3;
+  padding: 1em;
+  border-radius: 2em;
+  width: 95%;
+  box-shadow: 0 0 10px 5px #d98208;
+  align-items:center;
+
+}
+
+.search-section{
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  gap:10px;
+
+}
+.custom-div{
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  gap:10px;
+}
+
+.custom-div input{
+  width: 50%;
+}
+#matrix-input{
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+
+}
+
+.normal-button{
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #d98208, #db0606);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.countries-list{
+  gap: 10px;
+  width: 100%;
+}
+
+.committee-section{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  gap:10px;
+  align-items: center;
+  border-radius: 2em;;
+  border: 2px solid black;
+  
 }
