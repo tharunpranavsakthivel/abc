@@ -46,8 +46,9 @@ export function spreadsheetDone() {
     }
     showMatrix();
     spreadsheetMessageAdded = false;
-    //const targetSection = document.getElementById("matrix-container");
-    //targetSection.scrollIntoView({ behavior: "smooth" });
+    const targetSection = document.querySelector("#matrix-container");
+    targetSection.scrollIntoView({ behavior: "smooth" });
+    //console.log("scrolled to matrix-section")
   } 
   else {
 

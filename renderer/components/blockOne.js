@@ -216,15 +216,19 @@ export function nextBtnHandler(){
    
     if (isValid) {
       spreadsheetDone();
-      //const targetSection = document.getElementsByClassName("updates");
-      //targetSection.scrollIntoView({ behavior: 'smooth' });
-      //const cont  = document.getElementById("message-container")
-      //cont.disabled = true;
-      //cont.classList.add('disabled');
-      //cont.style.pointerEvents = 'none';
-      //cont.style.opacity = '0.5';
-      
+    
+      // Scroll to the target section
+      const targetSection = document.querySelector(".message-container");
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    
+      // Disable the form field
+      const cont = document.querySelector(".setUpContainer");
+      cont.disabled = true;
+      cont.classList.add('disabled');
+      cont.style.pointerEvents = 'none';
+      cont.style.opacity = '0.5';
     }
+    
     
   }
   

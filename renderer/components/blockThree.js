@@ -507,6 +507,7 @@ export function showMatrix() {
       categoryInput.className = 'category-input';
       categoryInput.rows = 1;
       categoryInput.style.width = '100%'; 
+      categoryInput.placeholder = "Paste countries separated with ','";
 
       categoryDiv.appendChild(categoryInput);
 

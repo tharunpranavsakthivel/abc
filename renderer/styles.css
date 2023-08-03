@@ -274,6 +274,7 @@ header {
   background-color: #ccc;
   padding: 1em;
   border-radius: 2em;
+  width: 100%;
   align-items:center;
 }
 
@@ -511,5 +512,31 @@ header {
   align-items: center;
   border-radius: 2em;;
   border: 2px solid black;
-  
+
+}
+
+.country-item{
+  cursor: pointer;
+  padding: 4px;
+}
+
+
+.country-item:hover{
+color: white;
+}
+
+.custom-div{
+  border-radius: 1em;
+  background-color: white;
+}
+
+.category{
+  width: 100%;
+}
+.category-input{
+  width: 100%;
+  min-height: 20px;
+  resize: none;
+  align-items: center;
+  text-align: left;
 }
