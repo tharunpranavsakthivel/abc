@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require("path");
+
+
 export let dashb = document.getElementById("dashboard");
 export let addCommittees = document.getElementById("add-committees");
 export const consoleOutput = document.getElementById("console-output");
@@ -268,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 dashb.addEventListener("click", function() {
   workingContainer.innerHTML = "";
+  
   if (workingContainer.innerHTML === "") {
     dashboard();
   }
@@ -282,7 +287,7 @@ setUpBtn.addEventListener("click", function() {
   workingContainer.innerHTML = "";
   workingContainer.style.display = "flex";
   workingContainer.style.flexDirection = "column"
-  
+
   setUpContainer.innerHTML = "";
   if (workingContainer.innerHTML === "") {
 
@@ -321,6 +326,38 @@ setUpBtn.addEventListener("click", function() {
     
   }
   
+});
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  const jsonFileName = 'matrix.json';
+  const jsonFilePath = path.join(__dirname,   '..', jsonFileName);
+
+  fs.access(jsonFilePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      const addComBtn = document.getElementById("add-committees")
+      addComBtn.disabled = true;
+      addComBtn.style.pointerEvents = 'none';
+      addComBtn.style.opacity = '0.5';
+
+      const matrixBtn = document.getElementById("matrix")
+      matrixBtn.disabled = true;
+      matrixBtn.style.pointerEvents = 'none';
+      matrixBtn.style.opacity = '0.5';
+
+
+      console.log('JSON file does not exist.');
+    } else {
+
+      const setUp = document.getElementById("set-up")
+      setUp.disabled = true;
+      setUp.style.pointerEvents = 'none';
+      setUp.style.opacity = '0.5';
+      console.log('JSON file exists.');
+    }
+  });
+
+
 });
 
 

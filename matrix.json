@@ -1,0 +1,26 @@
+{
+  "UNGA": {
+    "mostPertinent": [
+      "Armenia",
+      "Australia",
+      "Bangladesh",
+      "Algeria",
+      "Antigua and Barbuda"
+    ],
+    "moderatelyPertinent": [
+      "Bahamas",
+      "Angola",
+      "Argentina"
+    ],
+    "leastPertinent": [
+      "Albania",
+      "Austria",
+      "Bahamas"
+    ]
+  },
+  "UNHRC": {
+    "mostPertinent": [],
+    "moderatelyPertinent": [],
+    "leastPertinent": []
+  }
+}

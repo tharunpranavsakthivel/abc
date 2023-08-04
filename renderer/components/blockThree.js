@@ -1,4 +1,7 @@
 
+const fs = require('fs');
+const path = require("path");
+
 import { allCountries,committeeCheck, workingContainer, } from "./index.js";
 
 //matrix section
@@ -7,7 +10,7 @@ export function showMatrix() {
 
 
     const matrixContainer = document.createElement('div')
-//    matrixContainer.style.gridColumn = "span 3";
+//  matrixContainer.style.gridColumn = "span 3";
     matrixContainer.id = "matrix-container";
    matrixContainer.innerHTML = '';
 
@@ -24,12 +27,15 @@ export function showMatrix() {
     const manualBtn = document.createElement("button");
     manualBtn.textContent = "Manual";
     manualBtn.className = "add-button";
+    manualBtn.style.width = "100%";
     choiceContainer.appendChild(manualBtn);
 
 
     const bulkAddBtn = document.createElement("button");
     bulkAddBtn.textContent = "Add Custom"
     bulkAddBtn.className = "add-button";
+    bulkAddBtn.style.width = "100%";
+
     choiceContainer.appendChild(bulkAddBtn);
 
 
@@ -46,13 +52,7 @@ export function showMatrix() {
 
       
       
-    })
-
-
-    
-
-
-
+    });
 
 
 
@@ -395,9 +395,89 @@ export function showMatrix() {
 
   matrixContainer.appendChild(nBtnConatiner);
 
+  
+
+  nBtn.addEventListener("click", function(){
+    createPopup();
+    openPopup();
+  } );
+
+
+  function createPopup() {
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.id = 'popup';
+    popup.classList.add('popup');
+  
+    // Create the popup content
+    const popupContent = document.createElement('div');
+    popupContent.classList.add('popup-content');
+  
+    const heading = document.createElement('h1');
+    heading.textContent = 'Write Matrix';
+    popupContent.appendChild(heading);
+  
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Please click confirm to update the matrix';
+    popupContent.appendChild(paragraph);
+  
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.setAttribute("class", "add-button");
+    closeButton.addEventListener('click', closePopup);
+    popupContent.appendChild(closeButton);
+
+    const confirm = document.createElement('button');
+    confirm.textContent = 'Confirm';
+    confirm.setAttribute("class", "add-button");
+    confirm.addEventListener('click', writeJson);
+    popupContent.appendChild(confirm);
+  
+    // Append the popup content to the popup container
+    popup.appendChild(popupContent);
+  
+    // Append the popup to the body
+    document.body.appendChild(popup);
+  }
+  
+  function openPopup() {
+    const popup = document.getElementById('popup');
+    if (!popup) {
+      createPopup();
+    }
+    popup.style.display = 'block';
+  }
+  
+  function closePopup() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+      popup.style.display = 'none';
+    }
+  }
+
+  function writeJson(){
+
+      const jsonData = JSON.stringify(committeeDict, null, 2);
+  
+      const jsonFileName = 'matrix.json';
+      const jsonFilePath = path.join(__dirname,  '..', jsonFileName);
+  
+      // Write the JSON data 
+      fs.writeFile(jsonFilePath, jsonData, (err) => {
+        if (err) {
+          console.error('Error writing to JSON file:', err);
+        } else {
+          console.log('JSON file created and data written successfully.');
+        }
+      });
+
+  
+  }
+
+
     };
 
-    function bulk(){
+  function bulk(){
 
       //clearig the container
       const matrixContainer = document.getElementById('matrix-container');
@@ -573,6 +653,12 @@ export function showMatrix() {
     })
 
 
+    nBtn.addEventListener("click", function(){
+      createPopup();
+      openPopup();
+    } );
+  
+
   matrixContainer.appendChild(nBtnConatiner);
 
 
@@ -581,3 +667,6 @@ export function showMatrix() {
     }
     
   }
+
+
+  

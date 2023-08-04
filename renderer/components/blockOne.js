@@ -62,7 +62,7 @@ export function createFieldContainer() {
     newFieldContainer.appendChild(removeButton);
     removeButton.addEventListener('click', removeNewField);
     
-    nextBtnContainer.addEventListener('click', nextBtnHandler)
+    nextBtnContainer.addEventListener('click', nextBtnHandler);
 
 
 

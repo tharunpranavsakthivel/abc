@@ -40,6 +40,7 @@ export function spreadsheetDone() {
       updatesBtn.addEventListener("click", () => {
         const websiteUrl = "https://www.google.com";
         window.open(websiteUrl);
+
       });
 
       spreadsheetMessageAdded = true;
