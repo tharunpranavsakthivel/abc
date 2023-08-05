@@ -122,6 +122,7 @@ body {
   flex-direction:column;
   width: 100%;
   height: 100vh;
+  align-items: center;
   
 }
 
@@ -272,7 +273,6 @@ header {
   gap:20px;
   flex-direction: column;
   background-color: #ccc;
-  padding: 1em;
   border-radius: 2em;
   width: 100%;
   align-items:center;
@@ -580,4 +580,95 @@ color: white;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+.tile {
+  height: 300px;
+  width: 100%;
+  background: linear-gradient(to right, #d98208, #db0606);
+  border: 4px solid #ccc;
+  border-radius: 2em;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.4s ease;
+
+}
+
+.tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tile:active {
+  transform: scale(0.95);
+}
+
+.tile-img{
+  width: 55%;
+  height: 55%;
+  filter: invert(100%);
+
+}
+
+
+.custom-table {
+  width: 100%;
+  color: white;
+  border-collapse: separate;
+}
+.custom-table thead{
+  color: #d98208;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  text-align: center;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  width: 33.33%; 
+  background-color: #333; 
+
+}
+.custom-table th {
+  color: #d98208;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  text-align: center;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  width: 33.33%; 
+  background-color: #333; 
+}
+
+.custom-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  color: white;
+  width: 33.33%; /* Set width for each column (since there are 3 columns) */
+}
+
+.even-row {
+  background-color: #404040;
+}
+
+.odd-row {
+  background-color: #333;
+}
+
+#table-container {
+  width: 100%;
+  height: 100%;
+}
+
+tr:hover {
+  background-color: #333;
 }

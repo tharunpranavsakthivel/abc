@@ -479,6 +479,9 @@ export function showMatrix() {
 
   function bulk(){
 
+  
+
+
       //clearig the container
       const matrixContainer = document.getElementById('matrix-container');
   matrixContainer.innerHTML = '';
@@ -533,7 +536,7 @@ export function showMatrix() {
     committeeSection.appendChild(moderatelyPertinentDiv);
     committeeSection.appendChild(leastPertinentDiv);
 
-    
+    //here
     const countriesData = {
       mostPertinent: [],
       moderatelyPertinent: [],
@@ -598,7 +601,7 @@ export function showMatrix() {
         const countries = inputText === '' ? [] : inputText.split(',').map((country) => country.trim());
         switch (title) {
           case 'Most Pertinent:':
-            countriesData.mostPertinent = countries;
+             countriesData.mostPertinent = countries;
             break;
           case 'Moderately Pertinent:':
             countriesData.moderatelyPertinent = countries;
@@ -607,6 +610,17 @@ export function showMatrix() {
             countriesData.leastPertinent = countries;
             break;
         }
+        switch (title) {
+          case 'Most Pertinent:':
+             committeeDict[committeeName].mostPertinent = countries;
+            break;
+          case 'Moderately Pertinent:':
+            committeeDict[committeeName].moderatelyPertinent = countries;
+            break;
+          case 'Least Pertinent:':
+            committeeDict[committeeName].leastPertinent = countries;
+            break;
+        }///here
         updateCountryCount();
       });
 
@@ -622,6 +636,8 @@ export function showMatrix() {
       });
     
 
+      
+
       return categoryDiv;
     }
 
@@ -631,6 +647,8 @@ export function showMatrix() {
     
       matrixContainer.appendChild(committeeSection);
   });
+
+ 
 
   const nBtnConatiner = document.createElement("div");
   nBtnConatiner.className = "committee-section";
@@ -654,6 +672,7 @@ export function showMatrix() {
 
 
     nBtn.addEventListener("click", function(){
+      console.log(committeeDict)
       createPopup();
       openPopup();
     } );
@@ -661,12 +680,84 @@ export function showMatrix() {
 
   matrixContainer.appendChild(nBtnConatiner);
 
+  function createPopup() {
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.id = 'popup';
+    popup.classList.add('popup');
+  
+    // Create the popup content
+    const popupContent = document.createElement('div');
+    popupContent.classList.add('popup-content');
+  
+    const heading = document.createElement('h1');
+    heading.textContent = 'Write Matrix';
+    popupContent.appendChild(heading);
+  
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Please click confirm to update the matrix';
+    popupContent.appendChild(paragraph);
+  
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.setAttribute("class", "add-button");
+    closeButton.addEventListener('click', closePopup);
+    popupContent.appendChild(closeButton);
+
+    const confirm = document.createElement('button');
+    confirm.textContent = 'Confirm';
+    confirm.setAttribute("class", "add-button");
+    confirm.addEventListener('click', writeJson);
+    popupContent.appendChild(confirm);
+  
+    // Append the popup content to the popup container
+    popup.appendChild(popupContent);
+  
+    // Append the popup to the body
+    document.body.appendChild(popup);
+  }
+  
+  function openPopup() {
+    const popup = document.getElementById('popup');
+    if (!popup) {
+      createPopup();
+    }
+    popup.style.display = 'block';
+  }
+  
+  function closePopup() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+      popup.style.display = 'none';
+    }
+  }
+
+  function writeJson(){
+
+    const jsonData = JSON.stringify(committeeDict, null, 2);
+
+    const jsonFileName = 'matrix.json';
+    const jsonFilePath = path.join(__dirname,  '..', jsonFileName);
+
+    // Write the JSON data 
+    fs.writeFile(jsonFilePath, jsonData, (err) => {
+      if (err) {
+        console.error('Error writing to JSON file:', err);
+      } else {
+        console.log('JSON file created and data written successfully.');
+      }
+    });
 
 
-
+}
     }
     
+
+    
   }
+
+
+
 
 
   

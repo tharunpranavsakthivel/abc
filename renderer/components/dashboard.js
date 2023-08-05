@@ -10,12 +10,14 @@ export const setUpBtn = document.getElementById("set-up");
 const nextButton = document.getElementById("next-button");
 
 
-import { spreadsheetMessageAdded, workingContainer, createFieldContainer, setUpContainer, nextBtnContainer, extraFieldContainer, fieldIndex} from "./index.js";
+import { spreadsheetMessageAdded, workingContainer, createFieldContainer, setUpContainer, nextBtnContainer, extraFieldContainer, loadCommittees, fieldIndex} from "./index.js";
 
 
 export function dashboard() {
   let occupiedSeats = 100;
   let totalSeats = 500;
+  const pageName = document.getElementById("page-name");
+  pageName.textContent = "Dashboard";
   const progress = (occupiedSeats / totalSeats) * 100;
 
   workingContainer.style.padding = '20px';
@@ -281,12 +283,19 @@ dashb.addEventListener("click", function() {
 
 addCommittees.addEventListener("click", function() {
   workingContainer.innerHTML = "";
+  workingContainer.style.display = "grid"
+  workingContainer.style.gridColumn = "span 3";
+  loadCommittees();
 });
 
 setUpBtn.addEventListener("click", function() {
-  workingContainer.innerHTML = "";
+  workingContainer.innerHTML="";
+  //workingContainer.childNodes.remove()
   workingContainer.style.display = "flex";
   workingContainer.style.flexDirection = "column"
+
+  const pageName = document.getElementById("page-name");
+  pageName.textContent = "SetUP ";
 
   setUpContainer.innerHTML = "";
   if (workingContainer.innerHTML === "") {
