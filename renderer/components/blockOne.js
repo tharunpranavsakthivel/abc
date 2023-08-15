@@ -1,5 +1,7 @@
 
 import { committeeCheck, setUpContainer,extraFieldContainer, nextBtnContainer,  workingContainer, spreadsheetDone } from "./index.js";
+import { serviceAccountCred } from "../constant/index.js";
+const { google } = require('googleapis');
 
 
 export let fieldIndex = 0; 
@@ -191,10 +193,7 @@ export function nextBtnHandler(){
       displayError("Invalid Spreadsheet Link. Please paste link with editor access.");
       isValid = false;
     }
-    
-    
-  
-    
+ 
   
     committeeFields.forEach((field) => {
       const committeeValue = field.value;
